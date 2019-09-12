@@ -82,10 +82,25 @@ type Event struct {
 // Key constants
 const (
 	Enter = 28
-	Up    = 103
-	Left  = 105
-	Right = 106
-	Down  = 108
+	Tab   = 15
+	Cero  = 11
+	Uno   =  2
+	Dos   =  3
+	Tres  =  4
+	Cuatro=  5
+	Cinco =  6
+	Seis  =  7
+	Siete= 8
+	Ocho = 9
+	Nueve = 10
+	A = 30
+	B = 48
+	C = 46
+	D = 32
+	E = 18
+	F = 33
+	Te= 20
+	Dot =52
 )
 
 // IOC constants

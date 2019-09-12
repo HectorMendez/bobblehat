@@ -5,9 +5,6 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
-
-	"github.com/nathany/bobblehat/sense/screen"
-	"github.com/nathany/bobblehat/sense/screen/color"
 	"github.com/nathany/bobblehat/sense/stick"
 )
 
@@ -26,9 +23,6 @@ func main() {
 		os.Exit(1)
 	}
 
-	// Clear the screen
-	screen.Clear()
-
 	// Print the name of the input device
 	fmt.Println(input.Name())
 
@@ -41,39 +35,70 @@ func main() {
 		select {
 		case <-signals:
 			fmt.Println("")
-			screen.Clear()
+			//screen.Clear()
 
 			// Exit the loop
 			return
 		case e := <-input.Events:
-			fb := screen.NewFrameBuffer()
-
+			//fb := screen.NewFrameBuffer()
+			//fmt.Printf(",%d,",e.Code)
 			switch e.Code {
 			case stick.Enter:
-				fmt.Println("⏎")
-			case stick.Up:
-				fmt.Println("↑")
-				draw(fb, 0, 0, 8, 4, color.New(255, 255, 0))
-			case stick.Down:
-				fmt.Println("↓")
-				draw(fb, 0, 4, 8, 8, color.New(255, 0, 0))
-			case stick.Left:
-				fmt.Println("←")
-				draw(fb, 0, 0, 4, 8, color.New(0, 0, 255))
-			case stick.Right:
-				fmt.Println("→")
-				draw(fb, 4, 0, 8, 8, color.New(0, 255, 0))
+				fmt.Print("ENTER\n")
+			case stick.Tab:
+				fmt.Print("    TAB    ")
+			case stick.Cero:
+				fmt.Print("0")
+			case stick.Uno:
+				fmt.Print("1")
+			case stick.Dos:
+				fmt.Print("2")
+			case stick.Tres:
+				fmt.Print("3")
+			case stick.Cuatro:
+				fmt.Print("4")
+			case stick.Cinco:
+				fmt.Print("5")
+			case stick.Seis:
+				fmt.Print("6")
+			case stick.Siete:
+				fmt.Print("7")
+			case stick.Nueve:
+				fmt.Print("9")
+			case stick.A:
+				fmt.Print("a")
+			case stick.B:
+				fmt.Print("b")
+			case stick.C:
+				fmt.Print("c")
+			case stick.D:
+				fmt.Print("d")
+			case stick.E:
+				fmt.Print("e")
+			case stick.F:
+				fmt.Print("f")
+			case stick.Te:
+				fmt.Print("t")
+			case stick.Dot:
+				fmt.Print(":")
+
+
+
+
+
+
 			}
 
-			screen.Draw(fb)
+//			screen.Draw(fb)
 		}
 	}
 }
 
-func draw(fb *screen.FrameBuffer, a, b, m, n int, c color.Color) {
+/*func draw(fb *screen.FrameBuffer, a, b, m, n int, c color.Color) {
 	for i := a; i < m; i++ {
 		for j := b; j < n; j++ {
 			fb.SetPixel(i, j, c)
 		}
 	}
 }
+*/
