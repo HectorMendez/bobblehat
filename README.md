@@ -1,55 +1,17 @@
-![bobbleHAT](https://cdn.rawgit.com/nathany/bobblehat/master/gopher/bobblehat.svg)
 
-A Go library for Raspberry Pi HATs (Hardware Attached on Top), starting with the [Sense HAT](https://www.raspberrypi.org/products/sense-hat/).
+A Go library to support Raspberry Pi endpoints in /dev/input/evetx 
+#A Go library for Raspberry Pi HATs (Hardware Attached on Top), starting with the [Sense HAT](https://www.raspberrypi.org/products/sense-hat/).
 
 [![GoDoc](https://godoc.org/github.com/nathany/bobblehat?status.svg)](https://godoc.org/github.com/nathany/bobblehat) [![Build Status](https://travis-ci.org/nathany/bobblehat.svg?branch=master)](https://travis-ci.org/nathany/bobblehat)
 
 ### Documentation
 
-#### Screen
-
-<img src="https://cdn.rawgit.com/nathany/bobblehat/master/gopher/screen.svg" width="200">
-
-The Sense HAT has an 8x8 LED matrix that could be used to display the status of a headless server, to write a mini-game, or countless other possibilities.
-
-You can create an 8x8 frame buffer, set pixels with (x,y) coordinates, and then draw the frame buffer to the screen.
-
-```go
-fb := screen.NewFrameBuffer()
-fb.SetPixel(0, 0, color.Red)
-screen.Draw(fb)
-```
-
-Colors are specified as red, green, blue (RGB) components with a range of 0-255. However, these are converted down to 32 shades (0-31) before being sent to the screen.
-
-```go
-cyan := color.New(0, 255, 255)
-```
-
-A frame buffer is an 8x8 texture that can be drawn to the screen, but you can also create textures of any size (width, height).
-
-```go
-tx := texture.New(16, 16)
-tx.SetPixel(8, 8, color.White)
-```
-
-Or load a PNG file into a new texture.
-
-```go
-tx, err := texture.Load("image.png")
-```
-
-The `blit` function will copy between textures with destination and source offsets (x, y) and dimensions (width, height). See the image scrolling example for one use, but this can always be used to draw multi-pixels sprites (opaque).
-
-```go
-texture.Blit(fb.Texture, 0, 0, tx, 0, 0, 8, 8)
-```
 
 #### Stick
 
 <img src="https://cdn.rawgit.com/nathany/bobblehat/master/gopher/stick.svg" width="200">
 
-The Sense HAT has a tiny joystick control.
+The Sense HAT has a tiny joystick control now with an aphabet for a sniffer input.
 
 ```go
 input, err := stick.Open("/dev/input/event0")
@@ -76,25 +38,9 @@ for {
 }
 ```
 
-#### Motion
-
-<img src="https://cdn.rawgit.com/nathany/bobblehat/master/gopher/motion.svg" width="200">
-
-Gyroscope, Accelerometer, Magnetometer.
-
-Not yet implemented.
-
-### Weather
-
-<img src="https://cdn.rawgit.com/nathany/bobblehat/master/gopher/weather.svg" width="200">
-
-Temperature, Humidity, Barometric pressure
-
-Not yet implemented
-
 ### Gopher Gala 2016
 
-#### Team
+#### Thanks original Team
 
 * [Carlisia Campos](https://github.com/carlisia), Developer, California, U.S.
 * [Nathan Youngman](https://github.com/nathany), Developer, Alberta, Canada
