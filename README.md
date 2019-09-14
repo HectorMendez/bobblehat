@@ -78,3 +78,12 @@ Illustrations © 2016 Olga Shalakhina.
 * [RTIMULib](https://github.com/RPi-Distro/RTIMULib) (C++ dependency of sense-hat)
 * [golang-evdev](https://github.com/gvalkov/golang-evdev) (Go bindings for the Linux input subsystem)
 * [evdev](https://github.com/jteeuwen/evdev) (Go implementation of the Linux evdev API)
+
+
+##### Things to Do
+
+- build a complete alphabet 
+- add labels 
+- build and do single things
+- build policy of flow
+-   

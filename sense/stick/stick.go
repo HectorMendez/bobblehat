@@ -1,3 +1,4 @@
+//This does not works for Windows just for Linux
 package stick
 
 import (
@@ -8,13 +9,13 @@ import (
 	"unsafe"
 )
 
-// Device is a Sense HAT joystick
+// Device sense
 type Device struct {
 	f      *os.File
 	Events chan Event
 }
 
-// Open a Sense HAT joystick device and start polling for events
+// Open and Sense some you wants device like keyboard and start polling for events
 func Open(name string) (*Device, error) {
 	f, err := os.Open(name)
 	if err != nil {
@@ -81,26 +82,42 @@ type Event struct {
 
 // Key constants
 const (
-	Enter = 28
-	Tab   = 15
-	Cero  = 11
-	Uno   =  2
-	Dos   =  3
-	Tres  =  4
-	Cuatro=  5
-	Cinco =  6
-	Seis  =  7
-	Siete= 8
-	Ocho = 9
-	Nueve = 10
-	A = 30
-	B = 48
-	C = 46
-	D = 32
-	E = 18
-	F = 33
-	Te= 20
-	Dot =52
+	Enter  = 28
+	Tab    = 15
+	Cero   = 11
+	Uno    = 2
+	Dos    = 3
+	Tres   = 4
+	Cuatro = 5
+	Cinco  = 6
+	Seis   = 7
+	Siete  = 8
+	Ocho   = 9
+	Nueve  = 10
+	A      = 30
+	B      = 48
+	C      = 46
+	D      = 32
+	E      = 18
+	F      = 33
+	G      = 34
+	H      = 35
+	I      = 23
+	J      = 36
+	K      = 37
+	L      = 38
+	M      = 50
+	N      = 49
+	O      = 24
+	P      = 25
+	Q      = 16
+	R      = 19
+	S      = 31
+	Z      = 44
+	W      = 17
+	X      = 45
+	Te     = 20
+	Dot    = 52
 )
 
 // IOC constants
