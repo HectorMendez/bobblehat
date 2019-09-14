@@ -1,6 +1,6 @@
 
-A Go library to support Raspberry Pi endpoints in /dev/input/evetx 
-#A Go library for Raspberry Pi HATs (Hardware Attached on Top), starting with the [Sense HAT](https://www.raspberrypi.org/products/sense-hat/).
+A Go library to support from Raspberry Pi 3 endpoints allocate in /dev/input/eventx 
+
 
 [![GoDoc](https://godoc.org/github.com/nathany/bobblehat?status.svg)](https://godoc.org/github.com/nathany/bobblehat) [![Build Status](https://travis-ci.org/nathany/bobblehat.svg?branch=master)](https://travis-ci.org/nathany/bobblehat)
 
@@ -11,9 +11,10 @@ A Go library to support Raspberry Pi endpoints in /dev/input/evetx
 
 <img src="https://cdn.rawgit.com/nathany/bobblehat/master/gopher/stick.svg" width="200">
 
-The Sense HAT has a tiny joystick control now with an aphabet for a sniffer input.
+The Sense HAT has a tiny joystick control and original this libraryu support that, but for our needs we take the package and now we integrate a complete alphabet like a sniffer input and this result help to us to made our labor, the original request was read an specific keyboard in specific dev/input/event0 for example.
 
 ```go
+
 input, err := stick.Open("/dev/input/event0")
 if err != nil {
 	log.Fatal(err)
@@ -24,15 +25,15 @@ for {
 	case e := <-input.Events:
 		switch e.Code {
 		case stick.Enter:
-			fmt.Println("⏎")
-		case stick.Up:
-			fmt.Println("↑")
-		case stick.Down:
-			fmt.Println("↓")
-		case stick.Left:
-			fmt.Println("←")
-		case stick.Right:
-			fmt.Println("→")
+			fmt.Println("ENTER")
+		case stick.Tab:
+			fmt.Println("[     TAB     ]")
+		case stick.Uno:
+			fmt.Println("1")
+		case stick.DoubleDot:
+			fmt.Println(":")
+		case stick.Te:
+			fmt.Println("t")
 		}
 	}
 }
