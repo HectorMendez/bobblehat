@@ -3,15 +3,15 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/nathany/bobblehat/sense/stick"
 	"os"
 	"os/signal"
-	"github.com/nathany/bobblehat/sense/stick"
 )
 
 func main() {
-	var path string
+	var path string //this is the name of the vriable that allow read the output in direct
 
-	flag.StringVar(&path, "path", "/dev/input/event0", "path to the event device")
+	flag.StringVar(&path, "path", "/dev/input/event0", "path to the event device") //this is the function that allows define which /dev/input/ do you want to reas
 
 	// Parse command line flags
 	flag.Parse()
@@ -19,24 +19,22 @@ func main() {
 	// Open the input device (and defer closing it)
 	input, err := stick.Open(path)
 	if err != nil {
-		fmt.Printf("Unable to open input device: %s\nError: %v\n", path, err)
+		fmt.Printf("Unable to open input device: %s\nError: %v\n", path, err) //if the path is not correct the this alert that the endpoint do not run
 		os.Exit(1)
 	}
 
 	// Print the name of the input device
-	fmt.Println(input.Name())
+	fmt.Println(input.Name()) /////This is not mandatory, but is usable because help you to idenify the devices :)
 
 	// Set up a signals channel (stop the loop using Ctrl-C)
 	signals := make(chan os.Signal, 1)
 	signal.Notify(signals, os.Interrupt, os.Kill)
 
-	// Loop forever
+	// Loop forever capturing letters in upper case
 	for {
 		select {
 		case <-signals:
 			fmt.Println("")
-			//screen.Clear()
-
 			// Exit the loop
 			return
 		case e := <-input.Events:
@@ -82,14 +80,10 @@ func main() {
 			case stick.Dot:
 				fmt.Print(":")
 
-
-
-
-
+				//If do you want add more letter is posible, the dictionary is already complete
 
 			}
 
-//			screen.Draw(fb)
 		}
 	}
 }
