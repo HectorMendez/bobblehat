@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/nathany/bobblehat/sense/stick"
+	"github.com/hectormendez/bobblehat/sense/stick"
 	"os"
 	"os/signal"
 )
