@@ -118,6 +118,7 @@ const (
 	X      = 45
 	Te     = 20
 	Dot    = 52
+	Slash  = 53
 )
 
 // IOC constants
