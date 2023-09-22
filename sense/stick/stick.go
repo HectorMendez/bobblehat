@@ -80,6 +80,10 @@ type Event struct {
 	Value int32
 }
 
+//Sample of inputs in zkteco500
+//
+//
+//
 // Key constants
 const (
 	Enter  = 28
@@ -113,12 +117,18 @@ const (
 	Q      = 16
 	R      = 19
 	S      = 31
-	Z      = 44
+	Te     = 20
+        U      = 22
+        V      = 47
 	W      = 17
 	X      = 45
-	Te     = 20
+        Y      = 21
+	Z      = 44
 	Dot    = 52
-	Slash  = 53
+        Kminus = 12
+        Slash  = 53
+        Scolon = 39
+        Pslash = 98
 )
 
 // IOC constants
